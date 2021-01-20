@@ -1568,20 +1568,36 @@ void microstep_ms(uint8_t driver, int8_t ms1, int8_t ms2)
 {
   if(ms1 > -1) switch(driver)
   {
+    #if defined(X_MS1_PIN) && X_MS1_PIN > -1
     case 0: digitalWrite( X_MS1_PIN,ms1); break;
+    #endif
+    #if defined(Y_MS1_PIN) && Y_MS1_PIN > -1
     case 1: digitalWrite( Y_MS1_PIN,ms1); break;
+    #endif
+    #if defined(Z_MS1_PIN) && Z_MS1_PIN > -1
     case 2: digitalWrite( Z_MS1_PIN,ms1); break;
+    #endif
+    #if defined(E0_MS1_PIN) && E0_MS1_PIN > -1
     case 3: digitalWrite(E0_MS1_PIN,ms1); break;
+    #endif
     #if defined(E1_MS1_PIN) && E1_MS1_PIN > -1
     case 4: digitalWrite(E1_MS1_PIN,ms1); break;
     #endif
   }
   if(ms2 > -1) switch(driver)
   {
+    #if defined(X_MS2_PIN) && X_MS2_PIN > -1
     case 0: digitalWrite( X_MS2_PIN,ms2); break;
+    #endif
+    #if defined(Y_MS2_PIN) && Y_MS2_PIN > -1
     case 1: digitalWrite( Y_MS2_PIN,ms2); break;
+    #endif
+    #if defined(Z_MS2_PIN) && Z_MS2_PIN > -1
     case 2: digitalWrite( Z_MS2_PIN,ms2); break;
+    #endif
+    #if defined(E0_MS2_PIN) && E0_MS2_PIN > -1
     case 3: digitalWrite(E0_MS2_PIN,ms2); break;
+    #endif
     #if defined(E1_MS2_PIN) && E1_MS2_PIN > -1
     case 4: digitalWrite(E1_MS2_PIN,ms2); break;
     #endif
@@ -1603,18 +1619,26 @@ void microstep_mode(uint8_t driver, uint8_t stepping_mode)
 void microstep_readings()
 {
       SERIAL_PROTOCOLPGM("MS1,MS2 Pins\n");
+      #if defined(X_MS1_PIN) && X_MS1_PIN > -1
       SERIAL_PROTOCOLPGM("X: ");
       SERIAL_PROTOCOL(   digitalRead(X_MS1_PIN));
       SERIAL_PROTOCOLLN( digitalRead(X_MS2_PIN));
+      #endif
+      #if defined(Y_MS1_PIN) && Y_MS1_PIN > -1
       SERIAL_PROTOCOLPGM("Y: ");
       SERIAL_PROTOCOL(   digitalRead(Y_MS1_PIN));
       SERIAL_PROTOCOLLN( digitalRead(Y_MS2_PIN));
+      #endif
+      #if defined(Z_MS1_PIN) && Z_MS1_PIN > -1
       SERIAL_PROTOCOLPGM("Z: ");
       SERIAL_PROTOCOL(   digitalRead(Z_MS1_PIN));
       SERIAL_PROTOCOLLN( digitalRead(Z_MS2_PIN));
+      #endif
+      #if defined(E0_MS1_PIN) && E0_MS1_PIN > -1
       SERIAL_PROTOCOLPGM("E0: ");
       SERIAL_PROTOCOL(   digitalRead(E0_MS1_PIN));
       SERIAL_PROTOCOLLN( digitalRead(E0_MS2_PIN));
+      #endif
       #if defined(E1_MS1_PIN) && E1_MS1_PIN > -1
       SERIAL_PROTOCOLPGM("E1: ");
       SERIAL_PROTOCOL(   digitalRead(E1_MS1_PIN));

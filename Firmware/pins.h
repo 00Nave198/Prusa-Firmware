@@ -21,6 +21,10 @@
 #include "pins_Einsy_1_0.h"
 #endif //MOTHERBOARD == BOARD_EINSY_1_0a
 
+#if MOTHERBOARD == BOARD_MKS_GEN_L //44 - MK25S Ramps support
+#include "pins_MKS_GEN_L.h"
+#endif //MOTHERBOARD == BOARD_MKS_GEN_L
+
 #ifndef KNOWN_BOARD
 #error Unknown MOTHERBOARD value in configuration.h
 #endif
