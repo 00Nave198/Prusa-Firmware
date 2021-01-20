@@ -1,3 +1,6 @@
+# Prusa Firmware MK2.5 MKS GEN L / RAMPS
+This is a fork of the Prusa firmware specifically for my clone prusa with a MKS GEN L board.  Configuration_prusa.h is already in place, you may need to modify it however.
+
 # Prusa Firmware MK3
 
 This repository contains the source code and the development versions of the firmware running on the [Original Prusa i3](https://prusa3d.com/) MK3S/MK3/MK2.5S/MK2.5 line of printers.
